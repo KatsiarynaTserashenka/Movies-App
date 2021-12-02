@@ -1,0 +1,28 @@
+.movieItem {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin: 0px 20px 60px;
+}
+
+.posterImg {
+  display: block;
+}
+
+.movieMainInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+}
+
+.dateRelease {
+  display: block;
+  margin: auto 0;
+  border: 1px solid gray;
+  padding: 3px 10px;
+  border-radius: 3px;
+}
+
+.movieTitle {
+  text-transform: uppercase;
+}
