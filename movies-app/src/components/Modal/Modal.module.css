@@ -1,0 +1,35 @@
+.modalWrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.open {
+  height: 100%;
+  display: block;
+}
+
+.close {
+  height: 0;
+  width: 0;
+  display: none;
+}
+
+.modalBody {
+  max-width: 500px;
+  margin: auto;
+  background-color: #fff;
+  margin-top: 5%;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.modalClose {
+  margin-right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  margin-left: 93%;
+}

@@ -1,0 +1,9 @@
+.moviesContainer {
+  padding: 1% 10%;
+  margin: 20px auto;
+}
+
+.moviesList {
+  display: flex;
+  flex-wrap: wrap;
+}
