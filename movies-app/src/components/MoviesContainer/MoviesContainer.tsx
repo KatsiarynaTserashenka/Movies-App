@@ -1,33 +1,36 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import styles from './MoviesContainer.module.css';
-import { Movie } from 'types/Movie';
-import { MoviesResponse } from 'types/MoviesResponse';
 import MovieItem from 'components/MovieItem';
+import { useTypedSelector } from 'hooks/useTypedSelector.';
+import { useActions } from 'hooks/useActions';
 
 interface IProps {
   searchString: string;
 }
 
 const MoviesContainer: FC<IProps> = (props) => {
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const { movies, error, loading } = useTypedSelector((state) => state.movie);
+  const { fetchMovies } = useActions();
   const { searchString } = props;
 
-  const fetchMovie = () => {
-    fetch('https://reactjs-cdp.herokuapp.com/movies?limit=3000')
-      .then((response): PromiseLike<MoviesResponse> => {
-        return response.json();
-      })
-      .then((data) => setMovies(data.data))
-      .catch((e) => console.error(e));
-  };
-
   useEffect(() => {
-    fetchMovie();
+    fetchMovies();
   }, []);
 
-  const filteredMoviesList = movies.filter((movie) => {
-    return movie.title.toLowerCase().includes(searchString);
-  });
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
+  if (error) {
+    return <h1>{error}</h1>;
+  }
+
+  console.log(movies);
+
+  const filteredMoviesList =
+    movies &&
+    movies.filter((movie) => {
+      return movie.title.toLowerCase().includes(searchString);
+    });
 
   return (
     <>
