@@ -1,0 +1,21 @@
+.header {
+  margin: 0 auto 100px;
+  padding: 20px 10%;
+  position: relative;
+  background-image: url('img/header-bg.jpeg');
+  background-position: center center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  color: rgb(255, 255, 255);
+}
+
+.header:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(37, 37, 37, 0.6);
+  z-index: 2;
+}

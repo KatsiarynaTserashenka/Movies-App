@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import './App.css';
+import styles from './App.module.css';
 import MoviesContainer from './components/MoviesContainer';
 import Input from 'components/Input';
+import Header from 'components/Header';
 import { Provider } from 'react-redux';
 import { store } from 'store';
 
@@ -13,12 +14,19 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div className="App">
-        <Input
-          placeholder="Search movie"
-          onChange={handleChange}
-          searchString={searchString}
-        />
+      <div className={styles.App}>
+        <Header>
+          <span className={styles.title}>netflixroulette</span>
+          <h2 className={styles.subTitle}>FIND YOUR MOVIE</h2>
+          <Input
+            placeholder="Search movie"
+            onChange={handleChange}
+            searchString={searchString}
+          />
+          <div className={styles.chooseSearch}>
+            <span className={styles.searchBySpan}>Search by</span>
+          </div>
+        </Header>
         <MoviesContainer searchString={searchString} />
       </div>
     </Provider>

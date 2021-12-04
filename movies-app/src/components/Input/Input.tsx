@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Input.module.css';
 
 interface IProps {
   placeholder: string;
@@ -14,15 +15,15 @@ const Input: React.FC<IProps> = (props) => {
   const { searchString } = props;
 
   return (
-    <div className="search__form">
+    <form className={styles.searchForm}>
       <input
         type="text"
-        className="search__input"
+        className={styles.searchFormInput}
         value={searchString}
         placeholder={props.placeholder}
         onChange={searchMovie}
       />
-    </div>
+    </form>
   );
 };
 
