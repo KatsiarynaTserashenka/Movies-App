@@ -1,0 +1,19 @@
+.button,
+.searchButton {
+  position: relative;
+  z-index: 9999;
+  margin-left: 20px;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+}
+
+.button {
+  padding: 3px 20px;
+  background-color: rgb(87, 87, 87);
+}
+
+.searchButton {
+  padding: 7px 40px;
+  background-color: rgb(245, 90, 150);
+}

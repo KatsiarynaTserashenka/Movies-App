@@ -1,0 +1,16 @@
+.searchForm {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.searchFormInput {
+  padding: 15px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 1);
+  border: none;
+  border-bottom: 2px solid rgb(245, 90, 150);
+  color: rgb(255, 255, 255);
+  z-index: 3;
+  outline: none;
+}

@@ -1,6 +1,7 @@
 import React, { FC, useEffect } from 'react';
 import styles from './MoviesContainer.module.css';
 import MovieItem from 'components/MovieItem';
+import Preloader from 'components/Preloader';
 import { useTypedSelector } from 'hooks/useTypedSelector.';
 import { useActions } from 'hooks/useActions';
 
@@ -18,7 +19,7 @@ const MoviesContainer: FC<IProps> = (props) => {
   }, []);
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return <Preloader />;
   }
   if (error) {
     return <h1>{error}</h1>;
@@ -36,7 +37,7 @@ const MoviesContainer: FC<IProps> = (props) => {
     <>
       <div className={styles.moviesContainer}>
         <div className={styles.moviesList}>
-          {filteredMoviesList.map((movie) => {
+          {filteredMoviesList.slice(0, 24).map((movie) => {
             return <MovieItem movie={movie} key={movie.id} />;
           })}
         </div>

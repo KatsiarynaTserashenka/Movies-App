@@ -1,0 +1,30 @@
+.App {
+  margin: 0;
+  padding: 0 10%;
+}
+
+.title {
+  color: rgb(245, 90, 150);
+  margin-bottom: 50px;
+  margin-top: 0;
+  z-index: 9999;
+  position: relative;
+  display: block;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.subTitle {
+  z-index: 9999;
+  position: relative;
+}
+
+.search {
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchBySpan {
+  z-index: 9999;
+  position: relative;
+}
