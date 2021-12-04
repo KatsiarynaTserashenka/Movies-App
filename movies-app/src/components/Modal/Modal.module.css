@@ -5,6 +5,7 @@
   width: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
+  z-index: 9999;
 }
 
 .open {

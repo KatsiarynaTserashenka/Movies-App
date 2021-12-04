@@ -15,7 +15,7 @@
 }
 
 .subTitle {
-  z-index: 9999;
+  z-index: 3;
   position: relative;
 }
 
@@ -25,6 +25,6 @@
 }
 
 .searchBySpan {
-  z-index: 9999;
+  z-index: 3;
   position: relative;
 }
