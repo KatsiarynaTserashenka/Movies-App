@@ -23,8 +23,10 @@ function App() {
             onChange={handleChange}
             searchString={searchString}
           />
-          <div className={styles.chooseSearch}>
-            <span className={styles.searchBySpan}>Search by</span>
+          <div className={styles.Search}>
+            <div className={styles.chooseSearchBy}>
+              <span className={styles.searchBySpan}>Search by</span>
+            </div>
           </div>
         </Header>
         <MoviesContainer searchString={searchString} />
