@@ -3,6 +3,7 @@ import styles from './App.module.css';
 import MoviesContainer from './components/MoviesContainer';
 import Input from 'components/Input';
 import Header from 'components/Header';
+import Button from 'components/Button';
 import { Provider } from 'react-redux';
 import { store } from 'store';
 
@@ -23,10 +24,13 @@ function App() {
             onChange={handleChange}
             searchString={searchString}
           />
-          <div className={styles.Search}>
+          <div className={styles.search}>
             <div className={styles.chooseSearchBy}>
-              <span className={styles.searchBySpan}>Search by</span>
+              <span className={styles.searchBySpan}>SEARCH BY</span>
+              <Button text="TITLE" />
+              <Button text="GENRE" />
             </div>
+            <Button text="SEARCH" searchButton />
           </div>
         </Header>
         <MoviesContainer searchString={searchString} />

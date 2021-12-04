@@ -1,16 +1,26 @@
 import React, { FC } from 'react';
 import styles from './Button.module.css';
+import classNames from 'classnames/bind';
+
+let cx = classNames.bind(styles);
 
 interface IProps {
   text: string;
-  onClick: () => void;
+  onClick?: () => void;
+  searchButton?: boolean;
 }
 
 const Button: FC<IProps> = (props) => {
-  const { text, onClick } = props;
+  const { text, onClick, searchButton } = props;
 
   return (
-    <button className={styles.button} onClick={onClick}>
+    <button
+      className={cx({
+        button: true,
+        searchButton: searchButton,
+      })}
+      onClick={onClick}
+    >
       {text}
     </button>
   );
