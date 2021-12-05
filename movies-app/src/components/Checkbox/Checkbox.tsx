@@ -1,5 +1,8 @@
-import React, { FC, useState } from 'react';
-import style from './Checkbox.module.css';
+import React, { FC } from 'react';
+import styles from './Checkbox.module.css';
+import classNames from 'classnames/bind';
+
+let cx = classNames.bind(styles);
 
 interface MyProps {
   text: string;
@@ -9,13 +12,20 @@ interface MyProps {
 const Checkbox: FC<MyProps> = ({ text, isChecked, handleCheck }) => {
   return (
     <div>
-      <label className={style.checkbox}>
+      <label className={styles.checkbox}>
         <input
           type="checkbox"
           onChange={handleCheck}
           checked={isChecked}
         ></input>
-        <span className={style.checkboxText}>{text}</span>
+        <span
+          className={cx({
+            checkboxText: true,
+            checked: isChecked,
+          })}
+        >
+          {text}
+        </span>
       </label>
     </div>
   );

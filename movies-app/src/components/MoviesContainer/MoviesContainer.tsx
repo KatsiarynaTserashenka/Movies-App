@@ -42,7 +42,7 @@ const MoviesContainer: FC = () => {
     <>
       <div className={styles.moviesContainer}>
         <div className={styles.moviesList}>
-          {filteredMoviesList.map((movie) => {
+          {filteredMoviesList.slice(0, 10).map((movie) => {
             return <MovieItem movie={movie} key={movie.id} />;
           })}
         </div>

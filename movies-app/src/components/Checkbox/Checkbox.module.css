@@ -23,6 +23,6 @@
   margin-left: 20px;
 }
 
-.checkbox input:checked + .checkboxText {
+.checked {
   background-color: rgb(245, 90, 150);
 }

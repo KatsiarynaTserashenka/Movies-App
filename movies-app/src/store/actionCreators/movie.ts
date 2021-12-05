@@ -12,7 +12,7 @@ export const fetchMovies = () => {
     try {
       dispatch({ type: MoviesActionTypes.FETCH_MOVIES });
       const response = await axios.get(
-        'https://reactjs-cdp.herokuapp.com/movies'
+        'https://reactjs-cdp.herokuapp.com/movies?limit=1000'
       );
       dispatch({
         type: MoviesActionTypes.FETCH_MOVIES_SUCCESS,
