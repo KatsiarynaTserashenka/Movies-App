@@ -7,16 +7,11 @@ import { useActions } from 'hooks/useActions';
 import { RootState } from 'store/store';
 import { useSelector, useDispatch } from 'react-redux';
 
-interface IProps {
-  //searchString: string;
-}
-
-const MoviesContainer: FC<IProps> = (props) => {
+const MoviesContainer: FC = () => {
   const { movies, error, loading, searchFilter, searchMovie, movieFilter } =
     useTypedSelector((state) => state.movie);
   const { fetchMovies } = useActions();
   const dispatch = useDispatch();
-  //const { searchString } = props;
 
   useEffect(() => {
     fetchMovies();
