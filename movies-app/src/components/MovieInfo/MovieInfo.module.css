@@ -1,0 +1,9 @@
+.movieTitle,
+.movieInfo,
+.movieGenre,
+.movieOverview,
+.movieVote,
+.movieBudget {
+  z-index: 999;
+  position: relative;
+}

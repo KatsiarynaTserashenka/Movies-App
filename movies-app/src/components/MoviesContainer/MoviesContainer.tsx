@@ -37,7 +37,7 @@ const MoviesContainer: FC<IProps> = (props) => {
     <>
       <div className={styles.moviesContainer}>
         <div className={styles.moviesList}>
-          {filteredMoviesList.slice(0, 24).map((movie) => {
+          {filteredMoviesList.map((movie) => {
             return <MovieItem movie={movie} key={movie.id} />;
           })}
         </div>

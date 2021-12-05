@@ -6,7 +6,7 @@ interface IProps {
   movie: Movie;
 }
 
-const UserInfo: FC<IProps> = (props) => {
+const MovieInfo: FC<IProps> = (props) => {
   const { movie } = props;
 
   return (
@@ -22,4 +22,4 @@ const UserInfo: FC<IProps> = (props) => {
   );
 };
 
-export default UserInfo;
+export default MovieInfo;

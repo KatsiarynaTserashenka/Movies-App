@@ -41,7 +41,12 @@ const MovieItem: React.FC<IProps> = (props) => {
           <span className={styles.dateRelease}>{release_date}</span>
         </div>
       </div>
-      <Modal isOpened={modal} onModalClose={toggleModal} key={movie?.id}>
+      <Modal
+        isOpened={modal}
+        onModalClose={toggleModal}
+        key={movie?.id}
+        movie={movie}
+      >
         <MovieInfo movie={movie} />
       </Modal>
     </>

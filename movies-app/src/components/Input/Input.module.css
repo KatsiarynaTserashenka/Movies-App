@@ -1,5 +1,6 @@
 .searchForm {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-bottom: 20px;
 }
@@ -13,4 +14,15 @@
   color: rgb(255, 255, 255);
   z-index: 3;
   outline: none;
+  margin-bottom: 20px;
+}
+
+.search {
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchBySpan {
+  z-index: 3;
+  position: relative;
 }

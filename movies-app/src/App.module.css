@@ -18,13 +18,3 @@
   z-index: 3;
   position: relative;
 }
-
-.search {
-  display: flex;
-  justify-content: space-between;
-}
-
-.searchBySpan {
-  z-index: 3;
-  position: relative;
-}

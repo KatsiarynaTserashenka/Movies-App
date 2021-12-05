@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Input.module.css';
+import Button from 'components/Button';
 
 interface IProps {
   placeholder: string;
@@ -8,22 +9,34 @@ interface IProps {
 }
 
 const Input: React.FC<IProps> = (props) => {
-  const searchMovie = (e: React.ChangeEvent<HTMLInputElement>) => {
-    props.onChange(e.target.value);
+  const { onChange } = props;
+
+  const searchMovie = () => {
+    onChange(searchString);
   };
 
   const { searchString } = props;
 
   return (
-    <form className={styles.searchForm}>
+    <div className={styles.searchForm}>
       <input
         type="text"
         className={styles.searchFormInput}
         value={searchString}
         placeholder={props.placeholder}
-        onChange={searchMovie}
+        onChange={(e: any) => {
+          onChange(e.target.value);
+        }}
       />
-    </form>
+      <div className={styles.search}>
+        <div className={styles.chooseSearchBy}>
+          <span className={styles.searchBySpan}>SEARCH BY</span>
+          <Button text="TITLE" />
+          <Button text="GENRE" />
+        </div>
+        <Button text="SEARCH" searchButton onClick={searchMovie} />
+      </div>
+    </div>
   );
 };
 
