@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import styles from './Button.module.css';
 import classNames from 'classnames/bind';
-import { type } from 'os';
 
 let cx = classNames.bind(styles);
 

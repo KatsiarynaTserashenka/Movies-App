@@ -27,9 +27,9 @@ const Modal: FC<IProps> = (props) => {
         <div
           className={styles.modalBody}
           style={{
-            backgroundImage: movie.poster_path
-              ? `url("${movie.poster_path}")`
-              : 'https://d5ip5p2ldkpmf.cloudfront.net/cinema/DB_Photos/default/Movies/movies.jpg',
+            backgroundImage: `url("${movie.poster_path}")`,
+            backgroundPosition: 'top center',
+            backgroundSize: 'cover',
             color: '#fff',
           }}
         >

@@ -1,11 +1,9 @@
 .App {
   margin: 0;
-  padding: 0 10%;
 }
 
-.title {
+.netflixroulette {
   color: rgb(245, 90, 150);
-  margin-bottom: 50px;
   margin-top: 0;
   z-index: 9999;
   position: relative;
@@ -17,4 +15,5 @@
 .subTitle {
   z-index: 3;
   position: relative;
+  margin-top: 50px;
 }
