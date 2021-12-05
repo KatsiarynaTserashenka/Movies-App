@@ -32,8 +32,8 @@ export const setSearchFilter = (filter: SearchFilter): MovieAction => ({
   payload: filter,
 });
 
-export const setSearchString = (word: string): MovieAction => ({
-  type: MoviesActionTypes.SET_SEARCH_STRING,
+export const setSearchMovie = (word: string): MovieAction => ({
+  type: MoviesActionTypes.SET_SEARCH_MOVIE,
   payload: word,
 });
 

@@ -8,24 +8,15 @@ import { Provider } from 'react-redux';
 import { store } from 'store';
 
 function App() {
-  const [searchString, setSearchString] = useState('');
-  const handleChange = (searchString: string) => {
-    setSearchString(searchString);
-  };
-
   return (
     <Provider store={store}>
       <div className={styles.App}>
         <Header>
           <span className={styles.netflixroulette}>netflixroulette</span>
           <h2 className={styles.subTitle}>FIND YOUR MOVIE</h2>
-          <Input
-            placeholder="Search movie"
-            onChange={handleChange}
-            searchString={searchString}
-          />
+          <Input placeholder="Search movie" />
         </Header>
-        <MoviesContainer searchString={searchString} />
+        <MoviesContainer />
         <Footer>
           <span className={styles.netflixroulette}>netflixroulette</span>
         </Footer>

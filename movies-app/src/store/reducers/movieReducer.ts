@@ -12,7 +12,7 @@ const InitialState: MovieState = {
   error: null,
   searchFilter: SearchFilter.TITLE,
   movieFilter: MovieFilter.RATING,
-  searchString: '',
+  searchMovie: '',
 };
 
 export const movieReducer = (
@@ -53,10 +53,10 @@ export const movieReducer = (
         movieFilter: action.payload,
       };
     }
-    case MoviesActionTypes.SET_SEARCH_STRING: {
+    case MoviesActionTypes.SET_SEARCH_MOVIE: {
       return {
         ...state,
-        searchString: action.payload,
+        searchMovie: action.payload,
       };
     }
     default:

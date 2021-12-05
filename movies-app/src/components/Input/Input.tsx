@@ -1,21 +1,29 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import styles from './Input.module.css';
 import Button from 'components/Button';
+import { setSearchFilter, setSearchMovie } from 'store/actionCreators/movie';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from 'store/store';
 
 interface IProps {
   placeholder: string;
-  onChange: (searchString: string) => void;
-  searchString: string;
 }
 
 const Input: React.FC<IProps> = (props) => {
-  const { onChange } = props;
+  const { searchFilter } = useSelector((state: RootState) => state.movie);
+  const [searchString, setSearchString] = useState('');
 
-  const searchMovie = () => {
-    onChange(searchString);
+  const dispatch = useDispatch();
+
+  /* s */
+
+  const handleSearchString = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchString(event.target.value);
   };
 
-  const { searchString } = props;
+  const handleSetSearchString = useCallback(() => {
+    dispatch(setSearchMovie(searchString));
+  }, [dispatch, searchString]);
 
   return (
     <div className={styles.searchForm}>
@@ -24,9 +32,7 @@ const Input: React.FC<IProps> = (props) => {
         className={styles.searchFormInput}
         value={searchString}
         placeholder={props.placeholder}
-        onChange={(e: any) => {
-          onChange(e.target.value);
-        }}
+        onChange={handleSearchString}
       />
       <div className={styles.search}>
         <div className={styles.chooseSearchBy}>
@@ -34,7 +40,7 @@ const Input: React.FC<IProps> = (props) => {
           <Button text="TITLE" />
           <Button text="GENRE" />
         </div>
-        <Button text="SEARCH" searchButton onClick={searchMovie} />
+        <Button text="SEARCH" searchButton onClick={handleSetSearchString} />
       </div>
     </div>
   );

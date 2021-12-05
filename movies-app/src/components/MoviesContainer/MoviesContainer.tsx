@@ -4,15 +4,19 @@ import MovieItem from 'components/MovieItem';
 import Preloader from 'components/Preloader';
 import { useTypedSelector } from 'hooks/useTypedSelector.';
 import { useActions } from 'hooks/useActions';
+import { RootState } from 'store/store';
+import { useSelector, useDispatch } from 'react-redux';
 
 interface IProps {
-  searchString: string;
+  //searchString: string;
 }
 
 const MoviesContainer: FC<IProps> = (props) => {
-  const { movies, error, loading } = useTypedSelector((state) => state.movie);
+  const { movies, error, loading, searchFilter, searchMovie, movieFilter } =
+    useTypedSelector((state) => state.movie);
   const { fetchMovies } = useActions();
-  const { searchString } = props;
+  const dispatch = useDispatch();
+  //const { searchString } = props;
 
   useEffect(() => {
     fetchMovies();
@@ -25,12 +29,10 @@ const MoviesContainer: FC<IProps> = (props) => {
     return <h1>{error}</h1>;
   }
 
-  console.log(movies);
-
   const filteredMoviesList =
     movies &&
     movies.filter((movie) => {
-      return movie.title.toLowerCase().includes(searchString);
+      return movie.title.toLowerCase().includes(searchMovie.toLowerCase());
     });
 
   return (

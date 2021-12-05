@@ -6,7 +6,7 @@ export interface MovieState {
   error: null | string;
   searchFilter: SearchFilter;
   movieFilter: MovieFilter;
-  searchString: string;
+  searchMovie: string;
 }
 
 export enum MovieFilter {
@@ -24,7 +24,7 @@ export enum MoviesActionTypes {
   FETCH_MOVIES_SUCCESS = 'FETCH_MOVIES_SUCCESS',
   FETCH_MOVIES_ERROR = 'FETCH_MOVIES_ERROR',
   SET_SEARCH_FILTER = 'SET_SEARCH_FILTER',
-  SET_SEARCH_STRING = 'SEARCH_STRING',
+  SET_SEARCH_MOVIE = 'SET_SEARCH_MOVIE',
   SET_MOVIE_FILTER = 'SET_MOVIE_FILTER',
 }
 
@@ -48,7 +48,7 @@ interface SetSearchFilterAction {
 }
 
 interface SetSearchStringAction {
-  type: MoviesActionTypes.SET_SEARCH_STRING;
+  type: MoviesActionTypes.SET_SEARCH_MOVIE;
   payload: string;
 }
 
