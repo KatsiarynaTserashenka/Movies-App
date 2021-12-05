@@ -11,7 +11,7 @@
   width: 0;
 }
 
-.checkboxBtn {
+.checkboxText {
   text-transform: uppercase;
   padding: 3px 20px;
   background-color: rgb(87, 87, 87);
@@ -23,12 +23,6 @@
   margin-left: 20px;
 }
 
-/* .checkbox:hover input ~ .checkboxBtn{
-  transform: scale(1.02);
-  background-color: var(--secondary-color);
-  color: #3D3E3E;
+.checkbox input:checked + .checkboxText {
+  background-color: rgb(245, 90, 150);
 }
-
-.checkbox input:checked + .checkboxBtn{
-  background-color: var(--primery-color);
-} */

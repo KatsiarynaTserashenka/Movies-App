@@ -2,6 +2,7 @@ import React, { FC, useEffect } from 'react';
 import styles from './MoviesContainer.module.css';
 import MovieItem from 'components/MovieItem';
 import Preloader from 'components/Preloader';
+import { SearchFilter } from 'store/types/todo';
 import { useTypedSelector } from 'hooks/useTypedSelector.';
 import { useActions } from 'hooks/useActions';
 import { RootState } from 'store/store';
@@ -27,7 +28,14 @@ const MoviesContainer: FC = () => {
   const filteredMoviesList =
     movies &&
     movies.filter((movie) => {
-      return movie.title.toLowerCase().includes(searchMovie.toLowerCase());
+      if (searchFilter === SearchFilter.TITLE) {
+        return movie.title.toLowerCase().includes(searchMovie.toLowerCase());
+      }
+      if (searchFilter === SearchFilter.GENRE) {
+        return movie.genres.find((genre: string) =>
+          genre.toLowerCase().includes(searchMovie.toLowerCase())
+        );
+      }
     });
 
   return (

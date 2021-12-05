@@ -4,7 +4,7 @@ import style from './Checkbox.module.css';
 interface MyProps {
   text: string;
   isChecked?: boolean;
-  handleCheck?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleCheck?: (event: any) => void;
 }
 const Checkbox: FC<MyProps> = ({ text, isChecked, handleCheck }) => {
   return (
@@ -15,7 +15,7 @@ const Checkbox: FC<MyProps> = ({ text, isChecked, handleCheck }) => {
           onChange={handleCheck}
           checked={isChecked}
         ></input>
-        <span className={style.checkboxBtn}>{text}</span>
+        <span className={style.checkboxText}>{text}</span>
       </label>
     </div>
   );
