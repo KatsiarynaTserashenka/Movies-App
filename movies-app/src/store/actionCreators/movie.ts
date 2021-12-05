@@ -1,5 +1,10 @@
 import { Dispatch } from 'react';
-import { MoviesActionTypes, MovieAction } from 'store/types/todo';
+import {
+  MoviesActionTypes,
+  MovieAction,
+  MovieFilter,
+  SearchFilter,
+} from 'store/types/todo';
 import axios from 'axios';
 
 export const fetchMovies = () => {
@@ -21,3 +26,18 @@ export const fetchMovies = () => {
     }
   };
 };
+
+export const setSearchFilter = (filter: SearchFilter): MovieAction => ({
+  type: MoviesActionTypes.SET_SEARCH_FILTER,
+  payload: filter,
+});
+
+export const setSearchString = (word: string): MovieAction => ({
+  type: MoviesActionTypes.SET_SEARCH_STRING,
+  payload: word,
+});
+
+export const setMovieFilter = (filter: MovieFilter): MovieAction => ({
+  type: MoviesActionTypes.SET_MOVIE_FILTER,
+  payload: filter,
+});

@@ -36,7 +36,7 @@ const MovieItem: React.FC<IProps> = (props) => {
         <div className={styles.movieMainInfo}>
           <div>
             <h3 className={styles.movieTitle}>{movie.title}</h3>
-            <span>{movie.genres[0]}</span>
+            <span className={styles.movieGenre}>{movie.genres[0]}</span>
           </div>
           <span className={styles.dateRelease}>{release_date}</span>
         </div>
