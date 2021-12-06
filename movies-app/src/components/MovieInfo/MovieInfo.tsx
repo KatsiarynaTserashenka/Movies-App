@@ -6,7 +6,7 @@ interface IProps {
   movie: Movie;
 }
 
-const UserInfo: FC<IProps> = (props) => {
+const MovieInfo: FC<IProps> = (props) => {
   const { movie } = props;
 
   return (
@@ -16,10 +16,10 @@ const UserInfo: FC<IProps> = (props) => {
         <h3 className={styles.movieGenre}>{movie.genres[0]}</h3>
         <p className={styles.movieOverview}>{movie.overview}</p>
         <p className={styles.movieVote}>Popularity: {movie.vote_average}</p>
-        <p className={styles.movieBudget}>Popularity: {movie.budget}</p>
+        <p className={styles.movieBudget}>Budget: {movie.budget}</p>
       </div>
     </>
   );
 };
 
-export default UserInfo;
+export default MovieInfo;

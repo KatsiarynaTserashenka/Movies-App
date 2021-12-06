@@ -7,17 +7,17 @@ let cx = classNames.bind(styles);
 interface IProps {
   text: string;
   onClick?: () => void;
-  searchButton?: boolean;
+  showMoreButton?: boolean;
 }
 
 const Button: FC<IProps> = (props) => {
-  const { text, onClick, searchButton } = props;
+  const { text, onClick, showMoreButton } = props;
 
   return (
     <button
       className={cx({
         button: true,
-        searchButton: searchButton,
+        showMoreButton: showMoreButton,
       })}
       onClick={onClick}
     >

@@ -1,9 +1,26 @@
 .moviesContainer {
-  margin: 20px auto;
+  padding: 0 10%;
+  min-height: calc(100vh - 402px);
+  margin-bottom: 50px;
 }
 
 .moviesList {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.moviesTopBar {
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.chooseMovieFilter {
+  display: flex;
+  justify-content: space-between;
+}
+
+p {
+  margin-top: 0;
 }

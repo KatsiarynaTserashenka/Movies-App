@@ -1,0 +1,29 @@
+.checkbox {
+  display: block;
+  position: relative;
+}
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkboxText {
+  padding: 3px 20px;
+  background-color: rgb(87, 87, 87);
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  z-index: 999;
+  position: relative;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.checked {
+  background-color: rgb(245, 90, 150);
+}
