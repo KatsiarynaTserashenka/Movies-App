@@ -4,7 +4,7 @@
   width: 100%;
   height: 100%;
   visibility: visible;
-  background: #fff url(img/preloader.svg) no-repeat top center;
+  background: #f5f5dc url(img/preloader.svg) no-repeat top center;
   transition: is all;
   opacity: 1;
   visibility: visible;

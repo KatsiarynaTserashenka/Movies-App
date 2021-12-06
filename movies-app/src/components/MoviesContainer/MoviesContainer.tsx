@@ -18,12 +18,12 @@ const MoviesContainer: FC = () => {
     fetchMovies();
   }, []);
 
-  if (loading) {
+  /* if (loading) {
     return <Preloader />;
   }
   if (error) {
     return <h1>{error}</h1>;
-  }
+  } */
 
   const filteredMoviesList =
     movies &&
@@ -42,9 +42,13 @@ const MoviesContainer: FC = () => {
     <>
       <div className={styles.moviesContainer}>
         <div className={styles.moviesList}>
-          {filteredMoviesList.slice(0, 10).map((movie) => {
-            return <MovieItem movie={movie} key={movie.id} />;
-          })}
+          {loading ? (
+            <Preloader />
+          ) : (
+            filteredMoviesList.slice(0, 10).map((movie) => {
+              return <MovieItem movie={movie} key={movie.id} />;
+            })
+          )}
         </div>
       </div>
     </>
