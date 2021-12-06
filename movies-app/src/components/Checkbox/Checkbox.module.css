@@ -12,7 +12,6 @@
 }
 
 .checkboxText {
-  text-transform: uppercase;
   padding: 3px 20px;
   background-color: rgb(87, 87, 87);
   color: #fff;
@@ -21,6 +20,8 @@
   z-index: 999;
   position: relative;
   margin-left: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .checked {

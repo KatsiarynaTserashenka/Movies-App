@@ -10,8 +10,8 @@ export interface MovieState {
 }
 
 export enum MovieFilter {
-  RELEASE_DATE = 'RELEASE_DATE',
-  RATING = 'RATING',
+  RELEASE_DATE = 'release date',
+  RATING = 'rating',
 }
 
 export enum SearchFilter {

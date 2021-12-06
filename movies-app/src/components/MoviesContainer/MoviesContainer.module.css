@@ -1,10 +1,25 @@
 .moviesContainer {
   padding: 0 10%;
-  height: 100vh;
+  min-height: calc(100vh - 352px);
 }
 
 .moviesList {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.moviesTopBar {
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.chooseMovieFilter {
+  display: flex;
+  justify-content: space-between;
+}
+
+p {
+  margin-top: 0;
 }
