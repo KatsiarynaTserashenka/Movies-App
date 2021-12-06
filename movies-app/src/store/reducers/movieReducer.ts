@@ -11,7 +11,7 @@ const InitialState: MovieState = {
   loading: false,
   error: null,
   searchFilter: SearchFilter.TITLE,
-  movieFilter: MovieFilter.RATING,
+  movieFilter: MovieFilter.RELEASE_DATE,
   searchMovie: '',
 };
 
