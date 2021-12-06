@@ -3,7 +3,7 @@
   position: relative;
 }
 
-.checkbox input {
+.checkboxInput {
   position: absolute;
   opacity: 0;
   cursor: pointer;

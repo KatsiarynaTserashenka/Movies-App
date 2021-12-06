@@ -44,14 +44,16 @@ const Input: React.FC<IProps> = (props) => {
       <div className={styles.search}>
         <div className={styles.chooseSearchBy}>
           <span className={styles.searchBySpan}>SEARCH BY</span>
-          {Object.values(SearchFilter).map((filter, index) => (
-            <Checkbox
-              key={index}
-              text={filter}
-              isChecked={filter === searchFilter}
-              handleCheck={() => chooseSearchFilter(filter)}
-            />
-          ))}
+          <Checkbox
+            text={'TITLE'}
+            isChecked={'TITLE' === searchFilter}
+            handleCheck={() => chooseSearchFilter(SearchFilter.TITLE)}
+          />
+          <Checkbox
+            text={'GENRE'}
+            isChecked={'GENRE' === searchFilter}
+            handleCheck={() => chooseSearchFilter(SearchFilter.GENRE)}
+          />
         </div>
         <Button text="SEARCH" onClick={handleSetSearchString} />
       </div>

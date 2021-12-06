@@ -10,6 +10,10 @@
   cursor: pointer;
 }
 
+.button:active {
+  background-color: rgb(87, 87, 87);
+}
+
 .showMoreButton {
   margin: 0 auto;
   display: block;

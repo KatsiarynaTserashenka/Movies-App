@@ -64,17 +64,23 @@ const MoviesContainer: FC = () => {
   return (
     <div className={styles.moviesContainer}>
       <div className={styles.moviesTopBar}>
-        <p>{filteredMoviesList.length} movies found</p>
+        <span>
+          <b>{filteredMoviesList.length} movies found</b>
+        </span>
         <div className={styles.chooseMovieFilter}>
-          <p>Sort by</p>
-          {Object.values(MovieFilter).map((filter, index) => (
-            <Checkbox
-              key={index}
-              text={filter}
-              isChecked={filter === movieFilter}
-              handleCheck={() => chooseMovieFilter(filter)}
-            />
-          ))}
+          <span>
+            <b>Sort by</b>
+          </span>
+          <Checkbox
+            text={'release date'}
+            isChecked={'release date' === movieFilter}
+            handleCheck={() => chooseMovieFilter(MovieFilter.RELEASE_DATE)}
+          />
+          <Checkbox
+            text={'rating'}
+            isChecked={'rating' === movieFilter}
+            handleCheck={() => chooseMovieFilter(MovieFilter.RATING)}
+          />
         </div>
       </div>
 
