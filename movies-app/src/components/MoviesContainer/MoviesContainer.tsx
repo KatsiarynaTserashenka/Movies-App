@@ -1,18 +1,19 @@
-import React, { FC, useEffect, useCallback } from 'react';
+import React, { FC, useEffect, useCallback, useState } from 'react';
 import styles from './MoviesContainer.module.css';
 import MovieItem from 'components/MovieItem';
 import Preloader from 'components/Preloader';
 import Checkbox from 'components/Checkbox';
+import Button from 'components/Button';
 import { SearchFilter, MovieFilter } from 'store/types/todo';
 import { setMovieFilter } from 'store/actionCreators/movie';
 import { useTypedSelector } from 'hooks/useTypedSelector.';
 import { useActions } from 'hooks/useActions';
-import { RootState } from 'store/store';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const MoviesContainer: FC = () => {
   const { movies, error, loading, searchFilter, searchMovie, movieFilter } =
     useTypedSelector((state) => state.movie);
+  const [displayLimit, setDisplayLimit] = useState(10);
   const { fetchMovies } = useActions();
   const dispatch = useDispatch();
 
@@ -56,6 +57,10 @@ const MoviesContainer: FC = () => {
     );
   }
 
+  const onShowMore = () => {
+    setDisplayLimit(displayLimit + 5);
+  };
+
   return (
     <div className={styles.moviesContainer}>
       <div className={styles.moviesTopBar}>
@@ -72,15 +77,19 @@ const MoviesContainer: FC = () => {
           ))}
         </div>
       </div>
-      <div className={styles.moviesList}>
-        {filteredMoviesList.length === 0 ? (
-          <h2>The are no movies found...</h2>
-        ) : (
-          filteredMoviesList.slice(0, 10).map((movie) => {
-            return <MovieItem movie={movie} key={movie.id} />;
-          })
-        )}
-      </div>
+
+      {filteredMoviesList.length === 0 ? (
+        <h2>The are no movies found...</h2>
+      ) : (
+        <>
+          <div className={styles.moviesList}>
+            {filteredMoviesList.slice(0, displayLimit).map((movie) => {
+              return <MovieItem movie={movie} key={movie.id} />;
+            })}
+          </div>
+          <Button text="Show more" onClick={onShowMore} showMoreButton />
+        </>
+      )}
     </div>
   );
 };

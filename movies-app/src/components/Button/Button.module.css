@@ -9,3 +9,8 @@
   background-color: rgb(245, 90, 150);
   cursor: pointer;
 }
+
+.showMoreButton {
+  margin: 0 auto;
+  display: block;
+}
