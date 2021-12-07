@@ -4,6 +4,8 @@ import MovieItem from 'components/MovieItem';
 import Preloader from 'components/Preloader';
 import Checkbox from 'components/Checkbox';
 import Button from 'components/Button';
+import Input from 'components/Input';
+import SearchBar from 'components/SearchBar';
 import { SearchFilter, MovieFilter } from 'store/types/todo';
 import { setMovieFilter } from 'store/actionCreators/movie';
 import { useTypedSelector } from 'hooks/useTypedSelector.';
@@ -63,23 +65,34 @@ const MoviesContainer: FC = () => {
 
   return (
     <div className={styles.moviesContainer}>
+      <SearchBar>
+        <span className={styles.netflixroulette}>netflixroulette</span>
+        <h2 className={styles.subTitle}>FIND YOUR MOVIE</h2>
+        <Input placeholder="Search movie" />
+      </SearchBar>
       <div className={styles.moviesTopBar}>
-        <p>{filteredMoviesList.length} movies found</p>
+        <span>
+          <b>{filteredMoviesList.length} movies found</b>
+        </span>
         <div className={styles.chooseMovieFilter}>
-          <p>Sort by</p>
-          {Object.values(MovieFilter).map((filter, index) => (
-            <Checkbox
-              key={index}
-              text={filter}
-              isChecked={filter === movieFilter}
-              handleCheck={() => chooseMovieFilter(filter)}
-            />
-          ))}
+          <span>
+            <b>Sort by</b>
+          </span>
+          <Checkbox
+            text={MovieFilter.RELEASE_DATE}
+            isChecked={movieFilter === MovieFilter.RELEASE_DATE}
+            handleCheck={() => chooseMovieFilter(MovieFilter.RELEASE_DATE)}
+          />
+          <Checkbox
+            text={MovieFilter.RATING}
+            isChecked={movieFilter === MovieFilter.RATING}
+            handleCheck={() => chooseMovieFilter(MovieFilter.RATING)}
+          />
         </div>
       </div>
 
       {filteredMoviesList.length === 0 ? (
-        <h2>The are no movies found...</h2>
+        <h2 style={{ padding: '0 10%' }}>The are no movies found...</h2>
       ) : (
         <>
           <div className={styles.moviesList}>

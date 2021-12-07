@@ -17,6 +17,7 @@ const Checkbox: FC<MyProps> = ({ text, isChecked, handleCheck }) => {
           type="checkbox"
           onChange={handleCheck}
           checked={isChecked}
+          className={styles.checkboxInput}
         ></input>
         <span
           className={cx({

@@ -3,6 +3,7 @@ import styles from './MovieItem.module.css';
 import { Movie } from 'types/Movie';
 import Modal from '../Modal';
 import MovieInfo from '../MovieInfo';
+import { Link, generatePath } from 'react-router-dom';
 
 interface IProps {
   movie: Movie;
@@ -29,18 +30,26 @@ const MovieItem: React.FC<IProps> = (props) => {
           onError={addDefaultSrc}
           src={movie.poster_path}
           alt={movie.title}
-          className={styles.poster}
+          className={styles.posterImg}
           onClick={toggleModal}
         />
 
         <div className={styles.movieMainInfo}>
           <div>
-            <h3 className={styles.movieTitle}>{movie.title}</h3>
+            <Link
+              to={generatePath('/film/:id', {
+                id: String(movie.id),
+              })}
+              className={styles.movieTitle}
+            >
+              {movie.title}
+            </Link>
             <span className={styles.movieGenre}>{movie.genres[0]}</span>
           </div>
           <span className={styles.dateRelease}>{release_date}</span>
         </div>
       </div>
+
       <Modal
         isOpened={modal}
         onModalClose={toggleModal}

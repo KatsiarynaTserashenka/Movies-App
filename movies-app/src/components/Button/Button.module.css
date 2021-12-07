@@ -1,6 +1,6 @@
 .button {
   position: relative;
-  z-index: 9999;
+  z-index: 555;
   margin-left: 20px;
   color: #fff;
   border: none;
@@ -8,6 +8,10 @@
   padding: 7px 40px;
   background-color: rgb(245, 90, 150);
   cursor: pointer;
+}
+
+.button:active {
+  background-color: rgb(87, 87, 87);
 }
 
 .showMoreButton {
