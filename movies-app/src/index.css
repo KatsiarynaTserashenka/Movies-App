@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Open sans', sans-serif;
-  background-color: #f5f5dc;
+  background-color: rgb(255, 240, 246);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

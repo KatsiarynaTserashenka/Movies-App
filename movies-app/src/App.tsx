@@ -41,6 +41,7 @@ function App() {
           <Routes>
             <Route path="/main" element={<MoviesContainer />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="/" element={<Navigate to="/main" />} />
           </Routes>
 
           <Footer>
