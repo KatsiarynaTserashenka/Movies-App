@@ -72,13 +72,13 @@ const MoviesContainer: FC = () => {
             <b>Sort by</b>
           </span>
           <Checkbox
-            text={'release date'}
-            isChecked={'release date' === movieFilter}
+            text={MovieFilter.RELEASE_DATE}
+            isChecked={movieFilter === MovieFilter.RELEASE_DATE}
             handleCheck={() => chooseMovieFilter(MovieFilter.RELEASE_DATE)}
           />
           <Checkbox
-            text={'rating'}
-            isChecked={'rating' === movieFilter}
+            text={MovieFilter.RATING}
+            isChecked={movieFilter === MovieFilter.RATING}
             handleCheck={() => chooseMovieFilter(MovieFilter.RATING)}
           />
         </div>

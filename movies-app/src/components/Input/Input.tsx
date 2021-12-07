@@ -45,13 +45,13 @@ const Input: React.FC<IProps> = (props) => {
         <div className={styles.chooseSearchBy}>
           <span className={styles.searchBySpan}>SEARCH BY</span>
           <Checkbox
-            text={'TITLE'}
-            isChecked={'TITLE' === searchFilter}
+            text={SearchFilter.TITLE}
+            isChecked={searchFilter === SearchFilter.TITLE}
             handleCheck={() => chooseSearchFilter(SearchFilter.TITLE)}
           />
           <Checkbox
-            text={'GENRE'}
-            isChecked={'GENRE' === searchFilter}
+            text={SearchFilter.GENRE}
+            isChecked={searchFilter === SearchFilter.GENRE}
             handleCheck={() => chooseSearchFilter(SearchFilter.GENRE)}
           />
         </div>

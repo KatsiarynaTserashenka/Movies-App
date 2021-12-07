@@ -1,0 +1,8 @@
+.notFoundContaiter {
+  min-height: calc(100vh - 373px);
+}
+
+.notFound {
+  text-align: center;
+  font-size: 50px;
+}
