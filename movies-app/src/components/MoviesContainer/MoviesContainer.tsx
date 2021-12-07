@@ -4,6 +4,8 @@ import MovieItem from 'components/MovieItem';
 import Preloader from 'components/Preloader';
 import Checkbox from 'components/Checkbox';
 import Button from 'components/Button';
+import Input from 'components/Input';
+import SearchBar from 'components/SearchBar';
 import { SearchFilter, MovieFilter } from 'store/types/todo';
 import { setMovieFilter } from 'store/actionCreators/movie';
 import { useTypedSelector } from 'hooks/useTypedSelector.';
@@ -63,6 +65,11 @@ const MoviesContainer: FC = () => {
 
   return (
     <div className={styles.moviesContainer}>
+      <SearchBar>
+        <span className={styles.netflixroulette}>netflixroulette</span>
+        <h2 className={styles.subTitle}>FIND YOUR MOVIE</h2>
+        <Input placeholder="Search movie" />
+      </SearchBar>
       <div className={styles.moviesTopBar}>
         <span>
           <b>{filteredMoviesList.length} movies found</b>
@@ -85,7 +92,7 @@ const MoviesContainer: FC = () => {
       </div>
 
       {filteredMoviesList.length === 0 ? (
-        <h2>The are no movies found...</h2>
+        <h2 style={{ padding: '0 10%' }}>The are no movies found...</h2>
       ) : (
         <>
           <div className={styles.moviesList}>

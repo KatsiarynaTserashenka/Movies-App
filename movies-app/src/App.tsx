@@ -1,11 +1,10 @@
 import React from 'react';
 import styles from './App.module.css';
 import MoviesContainer from './components/MoviesContainer';
-import Input from 'components/Input';
-import SearchBar from 'components/SearchBar';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import NotFound from 'components/NotFound';
+import MoviePage from 'components/MoviePage';
 import { Provider } from 'react-redux';
 import { store } from 'store';
 import {
@@ -32,14 +31,10 @@ function App() {
               </ul>
             </nav>
           </Header>
-          <SearchBar>
-            <span className={styles.netflixroulette}>netflixroulette</span>
-            <h2 className={styles.subTitle}>FIND YOUR MOVIE</h2>
-            <Input placeholder="Search movie" />
-          </SearchBar>
 
           <Routes>
             <Route path="/main" element={<MoviesContainer />} />
+            <Route path="/film/:id" element={<MoviePage />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/" element={<Navigate to="/main" />} />
           </Routes>
