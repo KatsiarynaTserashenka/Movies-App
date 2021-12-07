@@ -17,3 +17,21 @@
   position: relative;
   margin-top: 50px;
 }
+
+.headerList {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.headerListItem {
+  margin: auto 20px auto 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
+}
