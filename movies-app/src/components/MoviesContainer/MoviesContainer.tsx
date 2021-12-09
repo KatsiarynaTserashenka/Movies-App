@@ -11,13 +11,17 @@ import { setMovieFilter } from 'store/actionCreators/movie';
 import { useTypedSelector } from 'hooks/useTypedSelector.';
 import { useActions } from 'hooks/useActions';
 import { useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const MoviesContainer: FC = () => {
   const { movies, error, loading, searchFilter, searchMovie, movieFilter } =
     useTypedSelector((state) => state.movie);
-  const [displayLimit, setDisplayLimit] = useState(10);
+  const [displayLimit] = useState(10);
   const { fetchMovies } = useActions();
   const dispatch = useDispatch();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchMovies();
@@ -60,8 +64,14 @@ const MoviesContainer: FC = () => {
   }
 
   const onShowMore = () => {
-    setDisplayLimit(displayLimit + 5);
+    const query = new URLSearchParams(location.search);
+    const totalMovies = query.get('totalMovies') || '10';
+    const newTotalMovies = parseInt(totalMovies, 10) + 5;
+    query.set('totalMovies', newTotalMovies.toString());
+    navigate(`${location.pathname}?${query.toString()}`);
   };
+
+  const newDisplayLimit = location.search.split('=')[1];
 
   return (
     <div className={styles.moviesContainer}>
@@ -96,9 +106,14 @@ const MoviesContainer: FC = () => {
       ) : (
         <>
           <div className={styles.moviesList}>
-            {filteredMoviesList.slice(0, displayLimit).map((movie) => {
-              return <MovieItem movie={movie} key={movie.id} />;
-            })}
+            {filteredMoviesList
+              .slice(
+                0,
+                !newDisplayLimit ? displayLimit : parseInt(newDisplayLimit)
+              )
+              .map((movie) => {
+                return <MovieItem movie={movie} key={movie.id} />;
+              })}
           </div>
           <Button text="Show more" onClick={onShowMore} showMoreButton />
         </>
