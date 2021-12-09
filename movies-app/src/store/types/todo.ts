@@ -1,7 +1,7 @@
 import { Movie } from 'types/Movie';
 
 export interface MovieState {
-  movies: any[];
+  movies: Movie[];
   loading: boolean;
   error: null | string;
   searchFilter: SearchFilter;
