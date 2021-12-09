@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import styles from './MoviePage.module.css';
+import NotFound from 'pages/NotFound';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/store';
@@ -31,22 +32,22 @@ const MoviePage: FC = () => {
       return movie.id === parseInt(id!);
     });
 
-  return (
+  return movie ? (
     <div className={styles.moviePage}>
-      <h2 className={styles.movieTitle}>{movie && movie.title}</h2>
+      <h2 className={styles.movieTitle}>{movie.title}</h2>
       <div className={styles.movieItem}>
         <img
-          src={movie && movie.poster_path}
-          alt={movie && movie.title}
+          src={movie.poster_path}
+          alt={movie.title}
           className={styles.posterImg}
         />
         <div className={styles.movieInfo}>
-          <p className={styles.movieOverview}>{movie && movie.overview}</p>
+          <p className={styles.movieOverview}>{movie.overview}</p>
           <p className={styles.movieVote}>
-            <b>Popularity:</b> {movie && movie.vote_average}
+            <b>Popularity:</b> {movie.vote_average}
           </p>
           <p className={styles.movieBudget}>
-            <b>Budget:</b> {movie && movie.budget}
+            <b>Budget:</b> {movie.budget}
           </p>
           <p className={styles.movieGenres}>
             <b>Genre:</b>{' '}
@@ -56,10 +57,10 @@ const MoviePage: FC = () => {
               })}
           </p>
           <p className={styles.movieRelease}>
-            <b>Release date:</b> {movie && movie.release_date}
+            <b>Release date:</b> {movie.release_date}
           </p>
           <p className={styles.movieBudget}>
-            <b>Runtime:</b> {movie && movie.runtime}
+            <b>Runtime:</b> {movie.runtime}
           </p>
         </div>
       </div>
@@ -67,6 +68,8 @@ const MoviePage: FC = () => {
         <img src={player} alt="video" />
       </div>
     </div>
+  ) : (
+    <NotFound />
   );
 };
 

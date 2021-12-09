@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './App.module.css';
-import MoviesContainer from './components/MoviesContainer';
+import MoviesContainer from './pages/MoviesContainer';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
-import NotFound from 'components/NotFound';
-import MoviePage from 'components/MoviePage';
+import NotFound from 'pages/NotFound';
+import MoviePage from 'pages/MoviePage';
 import { Provider } from 'react-redux';
 import { store } from 'store';
 import {
