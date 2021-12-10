@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import styles from './MoviePage.module.css';
+import NotFound from 'pages/NotFound';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/store';
@@ -12,15 +13,18 @@ const MoviePage: FC = () => {
   const movies = useSelector((state: RootState) => {
     if (state.movie !== undefined) {
       return state.movie.movies;
+    } else {
     }
     return [];
   });
 
-  const movie = movies.find((movie: Movie) => {
-    return movie.id === parseInt(id!);
-  });
+  const movie =
+    movies &&
+    movies.find((movie: Movie) => {
+      return movie.id === parseInt(id!);
+    });
 
-  return (
+  return movie ? (
     <div className={styles.moviePage}>
       <h2 className={styles.movieTitle}>{movie.title}</h2>
       <div className={styles.movieItem}>
@@ -39,9 +43,10 @@ const MoviePage: FC = () => {
           </p>
           <p className={styles.movieGenres}>
             <b>Genre:</b>{' '}
-            {movie.genres.map((genre: string) => {
-              return <span className={styles.movieGenre}>{genre}</span>;
-            })}
+            {movie &&
+              movie.genres.map((genre: string) => {
+                return <span className={styles.movieGenre}>{genre}</span>;
+              })}
           </p>
           <p className={styles.movieRelease}>
             <b>Release date:</b> {movie.release_date}
@@ -55,6 +60,8 @@ const MoviePage: FC = () => {
         <img src={player} alt="video" />
       </div>
     </div>
+  ) : (
+    <NotFound />
   );
 };
 

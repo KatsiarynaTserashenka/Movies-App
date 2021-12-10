@@ -12,12 +12,6 @@
   font-size: 25px;
 }
 
-.subTitle {
-  z-index: 3;
-  position: relative;
-  margin-top: 50px;
-}
-
 .headerList {
   list-style: none;
   display: flex;
