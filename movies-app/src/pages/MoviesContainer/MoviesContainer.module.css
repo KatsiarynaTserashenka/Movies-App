@@ -25,3 +25,19 @@
 p {
   margin-top: 0;
 }
+
+.netflixroulette {
+  color: rgb(245, 90, 150);
+  margin-top: 0;
+  z-index: 555;
+  position: relative;
+  display: block;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.subTitle {
+  z-index: 3;
+  position: relative;
+  margin-top: 50px;
+}

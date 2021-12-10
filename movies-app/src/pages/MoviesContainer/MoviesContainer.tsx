@@ -44,14 +44,12 @@ const MoviesContainer: FC = () => {
   const filteredMoviesList =
     movies &&
     movies.filter((movie) => {
-      if (searchFilter === SearchFilter.TITLE) {
-        return movie.title.toLowerCase().includes(searchMovie.toLowerCase());
-      }
       if (searchFilter === SearchFilter.GENRE) {
         return movie.genres.find((genre: string) =>
           genre.toLowerCase().includes(searchMovie.toLowerCase())
         );
       }
+      return movie.title.toLowerCase().includes(searchMovie.toLowerCase());
     });
 
   if (movieFilter === 'rating') {

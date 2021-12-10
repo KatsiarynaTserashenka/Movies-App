@@ -1,30 +1,22 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import styles from './MoviePage.module.css';
 import NotFound from 'pages/NotFound';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/store';
 import { Movie } from 'types/Movie';
-import { useActions } from 'hooks/useActions';
-import { useTypedSelector } from 'hooks/useTypedSelector.';
 import player from 'img/player.jpg';
 
 const MoviePage: FC = () => {
-  const { movies } = useTypedSelector((state) => state.movie);
   const { id } = useParams();
-  const { fetchMovies } = useActions();
 
-  /* const movies = useSelector((state: RootState) => {
+  const movies = useSelector((state: RootState) => {
     if (state.movie !== undefined) {
       return state.movie.movies;
     } else {
     }
     return [];
-  }); */
-
-  useEffect(() => {
-    fetchMovies();
-  }, []);
+  });
 
   const movie =
     movies &&
